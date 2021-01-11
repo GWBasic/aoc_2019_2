@@ -27,13 +27,13 @@ try {
     return;
 }
 
-var address = 0;
+var instructionPointer = 0;
 
 // Performs an operand on the heap
 const operate = (operation) => {
-    const aAddress = heap[address + 1];
-    const bAddress = heap[address + 2];
-    const destinationAddress = heap[address + 3];
+    const aAddress = heap[instructionPointer + 1];
+    const bAddress = heap[instructionPointer + 2];
+    const destinationAddress = heap[instructionPointer + 3];
 
     // It's undefined when these values are out of the range of the heap
     // For now I'm just letting the Javascript exception bubble out
@@ -47,14 +47,14 @@ const operate = (operation) => {
     result = operation(a, b);
     heap[destinationAddress] = result;
 
-    address += 4;
+    instructionPointer += 4;
 };
 
 var running = true;
 
 try {
     while (running) {
-        var opCode = heap[address];
+        var opCode = heap[instructionPointer];
 
         // Note that I'm just letting array bounds issues fall through as exceptions
         // In industrial-strength code, I'd be much more careful about bounds checking, and
@@ -74,7 +74,7 @@ try {
                 break;
 
             default:
-                console.error(`Unexpected opCode at ${address}: ${opCode}`);
+                console.error(`Unexpected opCode at ${instructionPointer}: ${opCode}`);
                 running = false;
 
                 break;
