@@ -54,7 +54,7 @@ var running = true;
 
 try {
     while (running) {
-        var opCode = heap[instructionPointer];
+        const opCode = heap[instructionPointer];
 
         // Note that I'm just letting array bounds issues fall through as exceptions
         // In industrial-strength code, I'd be much more careful about bounds checking, and
