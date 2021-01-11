@@ -1,11 +1,8 @@
 // Obfuscated solution for https://adventofcode.com/2019/day/2
 // (C)opyright 2021 Andrew Rondeau
 
-const heap = JSON.parse(`[${process.argv[2]}]`);
-
 var instructionPointer = -1;
 
-// Performs an operand on the heap
 function operate(operation) {
 
     const a = heap[heap[++instructionPointer]];
@@ -15,6 +12,10 @@ function operate(operation) {
 
     next();
 }
+
+let parse = JSON.parse;
+let stringify = JSON.stringify;
+let replace = (string, searchValue, replaceValue) => string.replace(searchValue, replaceValue);
 
 const _ = null;
 const opCodes = [
@@ -31,7 +32,7 @@ const opCodes = [
     _,_,_,_,_,_,_,_,_,_,
     _,_,_,_,_,_,_,_,_,_,
     _,_,_,_,_,_,_,_,_,
-    () => console.log(JSON.stringify(heap).replace('[', '').replace(']', '')),
+    () => console.log(replace(replace(stringify(heap), '[', ''), ']', '')),
 ]
 
 function next() {
@@ -39,4 +40,5 @@ function next() {
     opCodes[opCode]();
 }
 
+const heap = parse(`[${process.argv[2]}]`);
 next();
