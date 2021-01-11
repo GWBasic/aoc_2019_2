@@ -1,0 +1,23 @@
+{
+  "name": "aoc_2019_2",
+  "version": "1.0.0",
+  "description": "https://adventofcode.com/2019/day/2",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GWBasic/aoc_2019_2.git"
+  },
+  "keywords": [
+    "aoc",
+    "advent"
+  ],
+  "author": "Andrew Rondeau",
+  "license": "NONE",
+  "bugs": {
+    "url": "https://github.com/GWBasic/aoc_2019_2/issues"
+  },
+  "homepage": "https://github.com/GWBasic/aoc_2019_2#readme"
+}
